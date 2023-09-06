@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div{
+            height: 8rem;
+            background: linear-gradient(180deg, rgba(76,254,255,0.9836309523809523) 16%, rgba(83,255,47,0.9668242296918768) 52%, rgba(173,255,47,1) 81%);
+        }
+        .content{
+            margin-top: -4rem;
+            z-index: 99;
+            width: 400px;
+            height: auto;
+            background-color: aquamarine;
+            padding: 12px;
+            border-radius: 12px;
+        }
+        table p{
+            font-weight: bold;
+        }
+        td, p{
+            color: blue;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="div"></div>
+    <center>
+        <div class="content">
+            <div class="biodata">
+                <h2>Biodata </h2>
+                <table>
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>:</td>
+                        <td><p id="nama"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td><p id="gender"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td><p id="alamat"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Keahlian</td>
+                        <td>:</td>
+                        <td><p id="KH"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td><p id="e"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Nomor Hp</td>
+                        <td>:</td>
+                        <td><p id="No"></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+    <script>
+        var nama = 'Khoirul Huda';
+        var gender = 'Laki - Laki';
+        var nH = '085791417251';
+        var a = 'Lamongan, jawa timur';
+        var k = 'html';
+        var e = 'muhammadsirinmus123@gmail.com';
+        document.getElementById('nama').innerHTML = nama;
+        document.getElementById('gender').innerHTML = gender;
+        document.getElementById('alamat').innerHTML = a ;
+        document.getElementById('KH').innerHTML = k;
+        document.getElementById('No').innerHTML = nH;
+        document.getElementById('e').innerHTML = e;
+
+    </script>
+</body>
+</html>
