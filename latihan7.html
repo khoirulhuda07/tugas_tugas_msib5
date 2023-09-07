@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>hasil pembelian</h1>
+    <table>
+        <tr>
+            <td>Pembeli</td>
+            <td>:</td>
+            <td><p id="beli"></p></td>
+        </tr>
+        <tr>
+            <td>nama barang</td>
+            <td>:</td>
+            <td><p id="barang"></p></td>
+        </tr>
+        <tr>
+            <td>jumlah beli barang</td>
+            <td>:</td>
+            <td><p id="jmlbl"></p></td>
+        </tr>
+        <tr>
+            <td>harga satuan</td>
+            <td>:</td>
+            <td><p id="hgsatuan"></p></td>
+        </tr>
+        <tr>
+            <td>harga total</td>
+            <td>:</td>
+            <td><p id="bruto"></p></td>
+        </tr>
+        <tr>
+            <td>diskon</td>
+            <td>:</td>
+            <td><p id="diskon"></p></td>
+        </tr>
+        <tr>
+            <td>pajak</td>
+            <td>:</td>
+            <td><p id="ppn"></p></td>
+        </tr>
+        <tr>
+            <td>total harga yang dibeli</td>
+            <td>:</td>
+            <td><p id="totalharga"></p></td>
+        </tr>
+    </table>
+    <script>
+        //ada pelanggan membeli barang elektronik
+        //barangnya ada tv = harga 3juta motor = harga 12 juta kulkas = 4 juta
+        //tentukan pembelian barang dan  berapa yang kita beli
+        //lalu cetak hasil pembelian barang dan totalannya
+    
+        let pembeli = 'Huda';
+        let barang = 'motor';
+        let harga_satuan = 0;
+    
+        switch (barang) {
+            case 'tv' : harga_satuan = 300000; break;
+            case 'motor': harga_satuan = 12000000; break;
+            case 'kulkas': harga_satuan = 4000000; break;
+            default : harga_satuan = 0;
+        }
+        //deklarasi proses
+        let jmlhbeli = 3;
+        let bruto = harga_satuan * jmlhbeli;
+        let ppn = bruto * 0.11;
+        //membuat minimal diskon dari produk diatas
+        let diskon = 0;
+        if(barang == 'tv') diskon = 0.3 * bruto;
+        else if (barang == 'motor') diskon = 0.2 * bruto;
+        else diskon = 0.05 * bruto;
+        let hasil_diskon = bruto - diskon;
+        //cetak proses diatas
+        document.getElementById('beli').innerHTML = pembeli;
+        document.getElementById('barang').innerHTML = barang;
+        document.getElementById('jmlbl').innerHTML = jmlhbeli;
+        document.getElementById('hgsatuan').innerHTML = harga_satuan;
+        document.getElementById('bruto').innerHTML = bruto;
+        document.getElementById('diskon').innerHTML = diskon;
+        document.getElementById('ppn').innerHTML = ppn;
+        document.getElementById('totalharga').innerHTML = hasil_diskon;
+    </script>
+</body>
+</html>
+
+
