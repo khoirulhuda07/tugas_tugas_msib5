@@ -3,16 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tugas looping</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        table{
+        margin: 0.7rem 0 0 0;
+        }
+    </style>
 </head>
 <body>
-    
+    <center>
+        <div>
+            <h2>Cetak data pegawai</h2>
+            <table>
+                <tr>
+                    <td>Nama pegawai</td>
+                    <td>:</td>
+                    <td><p id="pegawai"></p></td>
+                </tr>
+                <tr>
+                    <td>jabatan</td>
+                    <td>:</td>
+                    <td><p id="manager"></p></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>:</td>
+                    <td><p id="status"></p></td>
+                </tr>
+                <tr>
+                    <td>Gaji pokok</td>
+                    <td>:</td>
+                    <td><p id="gajipokok"></p></td>
+                </tr>
+                <tr>
+                    <td>Tunjangan jabatan</td>
+                    <td>:</td>
+                    <td><p id="tunja"></p></td>
+                </tr>
+                <tr>
+                    <td>BPJS</td>
+                    <td>:</td>
+                    <td><p id="bpjs"></p></td>
+                </tr>
+                <tr>
+                    <td>tunjangan keluarga</td>
+                    <td>:</td>
+                    <td><p id="tunkel"></p></td>
+                </tr>
+                <tr>
+                    <td>Total gaji</td>
+                    <td>:</td>
+                    <td><p id="totGaji"></p></td>
+                </tr>
+            </table>
+        </div>
+    </center>
 
 
+    <script>
+        let pegawai ='Ridwan';
+        let jabatan = 'Manager';
+        let status = 'menikah';
+        let gaji_pokok = 0;
 
+        if (jabatan == 'Manager') gaji_pokok = 15000000;
+        else if (jabatan == 'Asisten Manager') gaji_pokok = 10000000;
+        else if (jabatan == 'Staf') gaji_pokok = 500000;
+        else gaji_pokok = 0;
 
-
-
-    
+        let tunjangan_jabatan = gaji_pokok * 0.25 ;
+        let bpjs = gaji_pokok * 0.10;
+        let tunKel = gaji_pokok * 0.20; //bagi yang sudah menikah saja
+        let totGaji =  gaji_pokok + tunjangan_jabatan + bpjs + tunKel;
+        
+        document.getElementById('pegawai').innerHTML = pegawai ;
+        document.getElementById('manager').innerHTML = jabatan;
+        document.getElementById('status').innerHTML = status;
+        document.getElementById('gajipokok').innerHTML = gaji_pokok;
+        document.getElementById('tunja').innerHTML = tunjangan_jabatan;
+        document.getElementById('bpjs').innerHTML = bpjs;
+        document.getElementById('tunkel').innerHTML = tunKel;
+        document.getElementById('totGaji').innerHTML = totGaji;
+</script>
 </body>
 </html>
