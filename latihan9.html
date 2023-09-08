@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>alamat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                var no, warna;
+                for(no=1; no <=20; no++){
+                    warna = (no % 2 == 0) ? 'yellow' : 'blue';
+                    document.write(`<tr bgcolor="${warna}"> <td>${no}</td> <td> mahasiswa ${no} </td> <td> kecamatan bogor ${no} </td> </tr> `);
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>

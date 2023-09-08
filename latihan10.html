@@ -1,0 +1,28 @@
+<script>
+    //array 1 dimensi
+    var buah = ['pepaya','pisang','jambu','mangga'];//deklarasi array sederhana dengan kurung siku
+    //mengganti index yang ke 1
+    buah [1] = 'jeruk';
+
+    for(i=0; i<buah.length; i++){
+        document.write('<br>' + buah[i]);
+    }
+</script>
+<script>
+    document.write('<br>');
+
+    //array object atau array di dalam array atau array 2 dimensi
+    var p1 = { 'nama' : 'budi', 'devisi' : 'SDM', 'gaji' : 7000000 };
+    var p2 = { 'nama' : 'Huda', 'devisi' : 'Manager', 'gaji' : 12000000 };
+    var p3 = { 'nama' : 'Anam', 'devisi' : 'Karyawan', 'gaji' : 5000000 };
+
+    var pegawai = [p1, p2, p3];
+
+    for(i=0; i < pegawai.length; i++){
+        document.write('<br>' + pegawai[i]);
+    }
+    for(p of pegawai){
+        document.writeln('<br>'+ p.nama + p.devisi + p.gaji);
+
+    }
+</script>
