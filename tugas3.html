@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 8px;
+            margin: 0;
+        }
+        td{
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama pegawai</th>
+                    <th>jabatan</th>
+                    <th>Gaji Pokok</th>
+                    <th>Tunjangan jabatan</th>
+                    <th>Tunjangan Kesehatan</th>
+                    <th>Gaji Kotor</th>
+                    <th>Agama</th>
+                    <th>Zakat profesi</th>
+                    <th>Take Home Pay</th>
+                </tr>
+            </thead>
+            <tbody>
+                <script>
+                    var n1 = {"nama" : "pegawai1", nomor :1};
+                    var n2 = {'nama' : 'pegawai2', nomor : 2};
+                    var n3 = {'nama' : 'pegawai3', nomor : 3};
+                    var n4 = {'nama' : 'pegawai4', nomor : 4};
+                    var n5 = {'nama' : 'pegawai5', nomor : 5};
+                    var n6 = {'nama' : 'pegawai6', nomor : 6};
+                    var n7 = {'nama' : 'pegawai7', nomor : 7};
+                    var n8 = {'nama' : 'pegawai8', nomor : 8};
+                    var n9 = {'nama' : 'pegawai9', nomor : 9};
+                    var n10 = {'nama' : 'pegawai10', nomor : 10};
+                    var pegawai = [n1,n2,n3,n4,n5,n6,n7,n8,n9,n10];
+                    var jabatan = '';
+                    var gapok = 0;
+                    for(p of pegawai){
+                        var nama = (p.nama);
+                        var nomor = (p.nomor);
+                        if(p.nama =='pegawai1' || p.nama == 'pegawai2') jabatan = 'manager';
+                    else if (p.nama == 'pegawai3' || p.nama == 'pegawai4' || p.nama == 'pegawai5') jabatan = 'asisten manager';
+                    else if (p.nama == 'pegawai6' || p.nama == 'pegawai7' || p.nama == 'pegawai8') jabatan = 'supervisor';
+                    else if (p.nama == 'pegawai9' || p.nama == 'pegawai10') jabatan = 'staff';
+                    else jabatan = '';
+                    // swich untuk menentukan gaji
+                    switch(jabatan){
+                        case 'manager' : gapok = 15000000; break;
+                        case 'asisten manager' : gapok = 10000000; break;
+                        case 'supervisor' : gapok = 7000000; break;
+                        case 'staff' : gapok = 4000000; break;
+                        default :gapok = 0; break;
+                    }
+                    //tenary untuk mementukan agama muslim dan non muslim, baris ganjil muslim, baris genap non muslim, nonmuslim warna biru, muslim warna yellow
+                    var agama = p.nomor % 2 === 0 ? 'nonmuslim' : 'muslim';
+                    var warna = agama == 'nonmuslim' ? 'yellow' : 'blue';  
+            
+                    var tunJabatan = 0.20 * gapok;
+                    var tunKesehatan = gapok * 0.10;
+                    var gajiKotor = gapok + tunJabatan + tunKesehatan;
+                    var zakat = agama == 'muslim' && gajiKotor >= 7000000 ? 0.025 * gajiKotor : 0;
+                    var totGaji = gajiKotor - zakat;
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${nomor}</td>
+                        <td>${nama}</td>
+                        <td>${jabatan}</td>
+                        <td>${gapok}</td>
+                        <td>${tunJabatan}</td>
+                        <td>${tunKesehatan}</td>
+                        <td>${gajiKotor}</td>
+                        <td>${agama}</td>
+                        <td>${zakat}</td>
+                        <td>${totGaji}</td>
+                        </tr> `)
+                }
+                </script>
+
+            </tbody>
+        </table>
+    </center>     
+</body>
+</html>
