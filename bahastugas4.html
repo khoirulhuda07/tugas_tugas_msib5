@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(216, 255, 242);
+        }
+        .navbar{
+            border-bottom: 2px solid yellow;
+            padding: 8px;
+            background-color: aqua;
+            text-align: center;
+        }
+        .form{
+            border-radius: 15px;
+            margin: 2.5rem auto;
+            background-color: aquamarine;
+            width: 350px;
+        }
+        form{
+            padding: 15px;
+        }
+        button{
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            margin: 1rem 0 0.5rem 0;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+            transition: 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div><h2>Form Pembelian Barang</h2></div>
+    </header>
+    <div class="form">
+        <form action="" id="online">
+            <table>
+                <tr>
+                    <td>Nama Pelanggan</td>
+                    <td>:</td>
+                    <td><input id="nama" name="nama" type="text"></td>
+                </tr>
+                <tr>
+                        <td>pilih barang</td>
+                        <td>:</td>
+                        <td><select name="produk"></select></td>
+                </tr>
+                <tr>
+                    <td>Jumlah barang</td>
+                    <td>:</td>
+                    <td><input id="jumbrng" type="number"></td>
+                </tr>
+            </table>
+            <center>
+                <button id="submit" onclick="transaksi()">proses</button> 
+            </center>
+        </form>
+    </div>
+    <script src="js/toko.js"></script>
+</body>
+</html>
