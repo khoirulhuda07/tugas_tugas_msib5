@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        body{
+            display: flex;
+            justify-content: center
+
+        }
+        button{
+            margin: 5rem 0 ;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><button id="profile">Profile Saya</button></td>
+            <script>
+                var profile = document.getElementById('profile');
+                profile.addEventListener( "click", function( event ) {
+    alert( "Nama saya = Khoirul Huda \nAlamat = Lamongan, Jawa Timur \n jenis Kelamin = Laki - Laki " );
+}, false );
+            </script>
+        </tr>
+        <tr>
+            <td><button id="Moto">Moto Hidup</button></td>
+            <script>
+                var moto = document.getElementById('Moto');
+                moto.addEventListener('click', function(){
+                    alert("Motto = ingin menjadi orang yang bermanfaat bagi orang lain\nAlasan = Karena saya masih hidup sampai saat ini")
+                }, false);
+            </script>
+        </tr>
+        <tr>
+            <td>
+                <button id="keahlian">Keahlian</button>
+            </td>
+            <script>
+                var kh = document.getElementById('keahlian');
+                kh.addEventListener('click', function(){
+                    alert("Keahlian = html dan css\nPengalaman = Belum ada")
+                })
+            </script>
+        </tr>
+    </table>
+</body>
+</html>
