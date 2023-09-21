@@ -1,0 +1,53 @@
+@import url(/layoutit/aos-next/src/sass/aos.scss);
+
+
+.footer{
+    animation-name: footer;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+@keyframes footer{
+    0%{ color: #191D88; }
+    50%{ color: #279EFF; }
+    75%{ color: #46053B50; }
+}
+body{
+    background-color: #8DDFCB;
+ }
+.gambar img{
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 50%;
+    animation: jpq 2s  infinite;
+    animation-timing-function: linear;
+    box-shadow: 0px 0px 5px 8px rgba(255,231,0,0.75);
+}
+.hover:hover{
+    background-color: #176B87;
+    color: white;
+    transition: linear 0.2s;
+}
+.shadow:hover{
+    transition: linear 0.2s;
+    box-shadow: 0px 0px 5px 8px rgba(255,231,0,0.75);
+}
+@keyframes jpq{
+      20%{transform: translateY(-5px);}
+    80% {
+        transform: translatey(5px); /* Posisi akhir */
+      }
+}
+
+.text{
+    text-align: justify;
+}
+.project img{
+width: 100%;
+}
+@media (max-width: 760px){
+    .footer1{
+        position: relative;
+    }
+}
