@@ -1,0 +1,41 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+header{
+    background-color: aqua;
+    padding: 5px;
+    border-bottom: 2px solid yellow;
+}
+header h1{
+    text-align: center;
+
+}
+h2{
+    text-align: center;
+}
+button{
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.2s linear;
+}
+.login{
+    margin: auto;
+    background-color: aqua;
+    width: 400px;
+}
+form table td{
+    font-size: 17px;
+    font-weight: bold;
+}
+.biodata{
+    margin: auto;
+    width: 400px;
+    background-color: aqua;
+}
