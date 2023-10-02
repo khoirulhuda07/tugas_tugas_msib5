@@ -36,6 +36,4 @@ foreach($judul as $j){
         <?php
     }?>
 </tbody>
-
-
 </table>
