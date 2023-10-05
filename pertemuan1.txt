@@ -1,2 +1,40 @@
+
+
 //melihat seluruh database
 show databases;
+//membuat database baru
+CREATE DATABASE siswaSib5;
+
+//membuat table baru
+//proses DDL CREATE
+CREATE TABLE jenis( id int PRIMARY KEY AUTO_INCREMENT, nama varchar(50) NOT NULL unique);
+/*id adalah nama kolom
+int adalah tipe data
+PRIMARY KEY adalah key atau kunci dari sebuah table
+AUTO_INCREMENT adalah key untuk automasi penomoran
+NOT NULL menandakan kolom tersebut tidak boleh kosong
+unique adalah untuk key kolom tidak boleh sama*/
+
+//membuat table baru dengan relasi menggunakan references
+CREATE TABLE produk(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nama varchar(30) not null UNIQUE,
+    harga double not null,
+    stock int not null,
+    idjenis int not null REFERENCES jenis(id),
+    foto varchar(30));
+
+//menambahkan kolom dengan alter
+ALTER TABLE jenis ADD COLUMN if NOT EXISTS keterangan varchar(50) AFTER nama;
+
+//merubah nama kolom menggunakan alter
+ALTER TABLE jenis CHANGE keterangan ket varchar(30);
+
+//merubah tipe data dengan alter modify
+ALTER TABLE jenis MODIFY ket text AFTER nama;
+
+//menghapus colom tertentu dengan alter drop
+ALTER TABLE jenis DROP COLUMN ket;
+
+//meriname nama table dengan alter rename
+ALTER TABLE jenis RENAME to jenis_produk;

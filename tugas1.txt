@@ -1,0 +1,41 @@
+//pertama-tama kita harus masuk ke directory xampp/mysql/bin
+cd xampp/mysql/bin;
+
+// setelah jalankan perintah untuk terhubung ke server
+mysql -u root -p;
+
+//tampilkan database yang sudah dibuat
+show databases;
+
+//buat database baru dengan nama : dbpegawai
+CREATE DATABASE dbpegawai;
+
+//untuk masuk ke database dbpegawai
+use dbpegawai;
+
+//untuk menampilkan table yang sudah ada di dbpegawai
+show tables;
+
+/"buat tabel pegawai field-field:
+
+  1. id int primary key
+
+  2. nip char dengan constraint: wajib diisi, tidak boleh sama & 5 karakter
+
+  3. nama varchar dengan constraint: wajib diisi dan maksimal 30 karakter
+
+  4. gender enum('L','P') dengan constraint: wajib diisi
+
+  5. umur int dengan constraint: wajib diisi
+
+  6. berat_badan float*/
+
+create table pegawai(id int primary key, nip char(5) not null unique, nama varchar(30) not null, gender enum('L','P') not null, umur int not null, berat_badan float);
+
+//tampilkan database yang sudah dibuat
+
+show tables;
+
+//lihat deskripsi tabel pegawai yang sudah dibuat
+
+desc pegawai;
