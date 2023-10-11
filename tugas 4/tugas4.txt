@@ -1,0 +1,53 @@
+//SOAL 3.3
+
+//1.	Tampilkan data produk : id, nama, stok dan informasi jika stok telah sampai batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ jika tidak ‘stok aman’.
+SELECT id, nama, stock,
+CASE
+	WHEN stock >= 4 THEN 'aman'
+	ELSE 'segera belanja'
+END AS informasi FROM produk;
+//2.	Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+SELECT id, nama, umur,
+CASE
+	WHEN stock <= 17 THEN 'Muda'
+	WHEN stock >= 17 AND stock <=55 THEN 'dewasa'
+	ELSE 'Tua'
+END AS kategori FROM pelanggan
+//3.	Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+SELECT id, nama, stock,
+CASE
+	WHEN kode = 'TV01' THEN 'DVD PLAYER'
+	WHEN kode = 'K001' THEN 'RICE COOKER'
+	else 'Tidak Ada'
+END AS Bonus FROM produk
+
+//SOAL 3.4
+
+//1.	Tampilkan data statistik jumlah tempat lahir pelanggan
+SELECT tmp_lahir, COUNT(*) AS jumlah_pelanggan
+FROM pelanggan
+GROUP BY tmp_lahir;
+//2.	Tampilkan jumlah statistik produk berdasarkan jenis produk
+SELECT jenis_produk_id, COUNT(*) AS jumlah_produk
+FROM produk
+GROUP BY jenis_produk_id
+//3.	Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+SELECT id, nama, umur
+FROM pelanggan
+WHERE umur < (SELECT AVG(umur) FROM pelanggan);
+//4.	Tampilkan data produk yang harganya diatas rata-rata harga produk
+SELECT id,nama, harga_jual
+FROM produk
+WHERE harga_jual >(SELECT AVG(harga_jual) FROM produk)
+//5.	Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+SELECT pelanggan.id, pelanggan.nama, pelanggan.kartu_id, kartu.nama, kartu.iuran
+FROM pelanggan , kartu
+WHERE pelanggan.kartu_id=kartu.id AND iuran > 90000;
+//6.	Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+SELECT id, nama, harga_jual
+FROM produk
+WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk)
+//7.	Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+SELECT pelanggan.id, pelanggan.nama, kartu.nama, kartu.diskon
+FROM pelanggan, kartu
+WHERE pelanggan.kartu_id=kartu.id AND kartu_id IS NOT NULL AND diskon > 0.03

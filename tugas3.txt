@@ -45,8 +45,8 @@ SELECT * FROM produk WHERE kode NOT LIKE 'M%';
 SELECT * FROM produk WHERE nama LIKE '%televisi%';
 //4.	Tampilkan pelanggan mengandung huruf 'SA'
 SELECT * FROM pelanggan WHERE nama LIKE '%SA%';
-//5.	Tampilkan pelanggan yang lahirnya bukan di Jakarta dan mengandung huruf ‘yo‘
-SELECT * FROM pelanggan WHERE NOT tmp_lahir = 'Jakarta' AND nama LIKE '%yo%';
+//5.	Tampilkan pelanggan yang lahirnya bukan di Jakarta dan mengandung huruf ‘ru‘
+SELECT * FROM pelanggan WHERE tmp_lahir not like '%jakarta%' and nama LIKE  '%ru%'
 //6.	Tampilkan pelanggan yang karakter huruf ke – 2 nya adalah A
 SELECT * FROM pelanggan WHERE SUBSTRING(nama, 2, 1) = 'A';
 
