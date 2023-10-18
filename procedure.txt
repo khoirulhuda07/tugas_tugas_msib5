@@ -1,0 +1,76 @@
+ //tanpa parameter
+
+ DELIMITER $$
+MariaDB [dbsql]> create procedure showProduk()
+    -> BEGIN
+    -> select kode, nama_produk, stok from produk;
+    -> END &&
+    -> end$$
+MariaDB [dbsql]> DELIMITER $$
+
+//dengan parameter
+delimiter $$
+MariaDB [dbsql]> create procedure showProdukElektronik(id int)
+    -> begin
+    -> select * from produk where jenis_produk_id=id;
+    -> end $$
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [dbsql]> delimiter ;
+MariaDB [dbsql]> call showProdukElektronik(2)
+
+
+//input data menggunakan procedure
+delimiter $$
+MariaDB [dbsql]> create procedure inputPesanan(tanggal date, total double, pelanggan_id int)
+    -> begin
+    -> insert into pesanan (tanggal, total, pelanggan_id) values
+    -> (tanggal, total, pelanggan_id);
+    -> end $$
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [dbsql]> delimiter ;
+MariaDB [dbsql]> call inputPesanan('2020-10-01',300000,9);
+
+//procedure yang mengembalikan nilai
+imiter $$
+MariaDB [dbsql]> create procedure TotalHarga(in harga double, in jml int, out total double)
+    -> begin
+    -> set total = harga * jml;
+    -> select @total;
+    -> end $$
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [dbsql]> delimiter ;
+MariaDB [dbsql]> call TotalHarga(2500,4,@TotalHarga);
+MariaDB [dbsql]> select @TotalHarga;
+
+delimiter $$
+MariaDB [dbsql]> create procedure pro_naik(
+    -> in jenis_produk int, in persentase_kenaikan int)
+    -> begin
+    -> update produk set harga_jual= harga_jual +(harga_jual * persentase_kenaikan /100)
+    -> where jenis_produk_id=jenis_produk;
+    -> end $$
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [dbsql]> delimiter ;
+MariaDB [dbsql]> call pro_naik(5,4);
+Query OK, 4 rows affected (0.012 sec)
+
+//cara menggunakan trigger
+MariaDB [dbsql]> delimiter $$
+MariaDB [dbsql]> create trigger cek_pembayaran before insert on pembayaran
+     for each row
+     begin
+     declare total_bayar decimal(10,2);
+     declare total_pesanan decimal(10,2);
+     select sum(jumlah) into total_bayar from pembayaran where pesanan_id= new.pesanan_id;
+     select total into total_pesanan from pesanan where id = new.pesanan_id;
+     if total_bayar + new.jumlah >= total_pesanan then
+     set new.status_pembayaran  = 'Lunas';
+     end if;
+     end $$
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [dbsql]> delimiter ;
