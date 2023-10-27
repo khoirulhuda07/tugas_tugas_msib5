@@ -1,2 +1,2 @@
-# tugas_tugas_msib5
-ini adalah tempat pengumpulan tugas msib5
+# Lat-lat_MSIB5
+kumpulan latihan-latihan MSIB 5

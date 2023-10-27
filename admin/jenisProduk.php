@@ -1,13 +1,15 @@
-<?php
-$model = new Jenis_produk();
+<?php  
+
+$model =  new jenis_produk();
 $data_jenisProduk = $model->dataJenis();
+
 ?>
 
 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Jenis Produk</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="index.php?url=dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <!-- <div class="card mb-4">
@@ -19,49 +21,42 @@ $data_jenisProduk = $model->dataJenis();
                         </div> -->
                         <div class="card mb-4">
                             <div class="card-header">
-                            <a href="index.php?url=jenis_form">
-                               <button class="btn btn-sm btn-primary">Tambah</button></a>
+                                <a href="index.php?url=jenis_form">
+                                    <button class="btn btn-sm btn-primary">Tambah</button>
+                                </a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
+                                            <th>Nama Jenis Produk</th>
                                             <th>Aksi</th>
-                                           
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
+                                            <th>Nama Jenis Produk</th>
                                             <th>Aksi</th>
-                                           
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php 
-                                        $no = 1;
-                                        foreach ($data_jenisProduk as $row){
-
-                                        ?>
+                                        <?php $id = 1; ?>
+                                        <?php foreach ( $data_jenisProduk as $row ) : ?>
                                         <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td><?= $row['nama'] ?></td>
+                                            <td><?= $id; ?></td>
+                                            <td><?= $row['nama']; ?></td>
                                             <td>
-                                                <form action="jenis_controller.php" method="POST">
-                            <a href="index.php?url=jenis_form&idedit=<?= $row ['id']; ?> " class="btn btn-warning btn-sm">
-
-                                                        Ubah
+                                                <form action="jenis_controller.php" method="post">
+                                                    <a href="index.php?url=jenis_form&idedit=<?= $row['id'] ?>">
+                                                        <button type="button" class="btn btn-warning btn-sm">Ubah</button>
                                                     </a>
                                                 </form>
                                             </td>
-                                    </tr>
-                                    <?php
-                                    
-                                }
-                                    ?>
+                                        </tr>
+                                        <?php $id++; ?>
+		                                <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

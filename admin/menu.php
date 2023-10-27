@@ -1,4 +1,4 @@
-<div id="layoutSidenav">
+        <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -16,9 +16,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="index.php?url=produk">Produk</a>
                                     <a class="nav-link" href="index.php?url=jenisProduk">Jenis Produk</a>
-                                    <a class="nav-link" href="index.php?url=kartu">Kartu Pelanggan</a>
+                                    <a class="nav-link" href="index.php?url=kartuPelanggan">Kartu Pelanggan</a>
+                                    <a class="nav-link" href="index.php?url=produk">Produk</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        Admin
                     </div>
                 </nav>
             </div>
