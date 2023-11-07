@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LihatNilaiController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PagenotController;
+use App\Http\Controllers\kartucontroller;
+use App\Http\Controllers\jenisprodukcontroller;
+use App\Http\Controllers\produkcontroller;
+use App\Http\Controllers\pelanggancontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +42,24 @@ Route::get('/nilai',function(){
 Route::get('/daftarnilai', function(){
     return view('coba.daftar');
 
+});
+
+Route::get('/datamhs',[LihatNilaiController::class,'dataMahasiswa']);
+
+
+
+Route::prefix('admin')->group(function(){
+Route::get('/dashboard',[DashboardController::class,'index']);
+
+//contoh pemanggilan secara satu persatu menggunakan get,put,update,delete
+Route::get('/pagenot',[PagenotController::class, 'index']);
+
+//memanggil seluruh funcion menggunakan resource
+Route::resource('kartu', kartucontroller::class);
+
+//memanggil fungsi satu persatu
+Route::get('/jenis_produk',[jenisprodukcontroller::class, 'index']);
+
+Route::get('/produk',[produkcontroller::class, 'index']);
+Route::get('/pelanggan',[pelanggancontroller::class, 'index']);
 });
