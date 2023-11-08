@@ -67,10 +67,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">kumpulan data</h6>
-                        <a class="collapse-item" href="{{url('admin/produk')}}">Data pelanggan</a>
+                        <a class="collapse-item" href="{{url('admin/pelanggan')}}">Data pelanggan</a>
                         <a class="collapse-item" href="{{url('admin/produk')}}">Data produk</a>
                         <a class="collapse-item" href="{{route('kartu.index')}}">Data kartu</a>
-                        <a class="collapse-item" href="{{url('admin/jenis')}}">Data jenis produk</a>
+                        <a class="collapse-item" href="{{url('admin/jenis_produk')}}">Data jenis produk</a>
                     </div>
                 </div>
             </li>

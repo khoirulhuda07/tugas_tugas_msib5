@@ -12,6 +12,7 @@ class jenis_produk extends Model
     protected $table = 'jenis_produk';
     //mapping kolom
     protected $fillable = ['nama'];
+    public $timestamps = false;
     //relasi antar table
     public function produk(){
         return $this->hasMany(prduk::class);

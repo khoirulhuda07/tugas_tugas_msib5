@@ -59,7 +59,12 @@ Route::resource('kartu', kartucontroller::class);
 
 //memanggil fungsi satu persatu
 Route::get('/jenis_produk',[jenisprodukcontroller::class, 'index']);
-
+Route::get('/jenis_produk/create', [jenisprodukcontroller::class, 'create']);
+Route::post('/jenis_produk/store', [jenisprodukcontroller::class, 'store']);
 Route::get('/produk',[produkcontroller::class, 'index']);
+Route::get('/produk/create',[produkcontroller::class, 'create']);
+Route::post('/produk/store',[produkcontroller::class, 'store']);
 Route::get('/pelanggan',[pelanggancontroller::class, 'index']);
+Route::get('/pelanggan/create',[pelanggancontroller::class, 'create']);
+Route::post('/pelanggan/store',[pelanggancontroller::class, 'store']);
 });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pelanggan;
-
+use App\Models\kartu;
 class pelanggancontroller extends Controller
 {
     /**
@@ -22,7 +22,10 @@ class pelanggancontroller extends Controller
      */
     public function create()
     {
-        //
+        // 
+        $kartu= kartu::all();
+        $gender = ['L','P'];
+        return view('admin.pelanggan.create', compact('kartu','gender'));
     }
 
     /**
@@ -31,6 +34,16 @@ class pelanggancontroller extends Controller
     public function store(Request $request)
     {
         //
+        $pelanggan = new pelanggan;
+        $pelanggan->kode  = $request->kode;
+        $pelanggan->nama = $request->nama;
+        $pelanggan->jk =$request->jk;
+        $pelanggan->tmp_lahir= $request->tmp_lahir;
+        $pelanggan->tgl_lahir=$request->tgl_lahir;
+        $pelanggan->email = $request -> email;
+        $pelanggan->kartu_id = $request->kartu_id;
+        $pelanggan->save();
+        return redirect('admin/pelanggan');
     }
 
     /**

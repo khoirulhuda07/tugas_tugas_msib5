@@ -24,6 +24,7 @@ class jenisprodukcontroller extends Controller
     public function create()
     {
         //
+        return view ('admin.jenis.create');
     }
 
     /**
@@ -31,7 +32,11 @@ class jenisprodukcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //tambah data eloquent
+        $jenis_produk= new jenis_produk;
+        $jenis_produk->nama = $request->nama;
+        $jenis_produk->save();
+        return redirect('admin/jenis_produk');
     }
 
     /**

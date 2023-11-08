@@ -27,7 +27,9 @@ class produkcontroller extends Controller
      */
     public function create()
     {
-        //
+        //mengunakan query builder
+        $jenis_produk = DB::table('jenis_produk')->get();
+        return view('admin.produk.create', compact('jenis_produk'));
     }
 
     /**
@@ -36,6 +38,16 @@ class produkcontroller extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('produk')->insert([
+            'kode'=>$request->kode,
+            'nama_produk'=>$request->nama,
+            'harga_beli'=>$request->harga_beli,
+            'harga_jual'=>$request->harga_jual,
+            'stock'=>$request->stok,
+            'min_stok'=>$request->min_stok,
+            'jenis_produk_id'=>$request->jenis_produk_id,
+        ]);
+        return redirect('admin/produk');
     }
 
     /**
